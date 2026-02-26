@@ -10,9 +10,9 @@ Use docker to build and publish the image. As a matter of style
 we tag the image using the tag of the underlying container.
 Currently this is `Release_2024_03_6`: -
 
-    TAG=Release_2024_03_6
-    docker build . -t xchem/fragalysis-rdkit-cartridge-pgvector-debian:${TAG}
-    docker push xchem/fragalysis-rdkit-cartridge-pgvector-debian:${TAG}
+    TAG=2026.02.1
+    docker build . -t xchem/fragalysis-database:${TAG}
+    docker push xchem/fragalysis-database:${TAG}
 
 ---
 
