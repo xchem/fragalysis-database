@@ -17,7 +17,10 @@ RUN apt update -y && \
 
 WORKDIR /tmp/pgvector
 
-RUN make && \
+# A portable build: pgvector's default (-march=native) targets the build
+# machine's CPU (and the CI builds arm64 under QEMU), which gives "Illegal
+# instruction" on other CPUs. See "Portability" in pgvector's README.
+RUN make OPTFLAGS="" && \
     make install && \
     rm -r /tmp/pgvector && \
     apt-get remove -y \
